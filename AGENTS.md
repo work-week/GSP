@@ -4,6 +4,8 @@ This repository is the single source of truth for our work with **Global Shippin
 
 If you are a new session: read this file, then [README.md](README.md), then [project/status.md](project/status.md). That is enough to be up to speed. Go deeper through the [map](#where-to-look) only as the task needs.
 
+**Sync both ways.** Other sessions, agents and teammates edit this repository too. At the start of every session, pull the latest version (`git pull`) before reading or writing. At the end of any session that changed something, commit and push, so the next session sees it. Work that stays in a chat and never reaches this repository is lost.
+
 ## Absolute law
 
 Do not break these rules. If anything elsewhere in this repository disagrees with this section, this section wins. If unsure, stop and ask, and do not take the looser reading.
