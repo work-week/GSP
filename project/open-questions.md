@@ -8,7 +8,11 @@ Questions for the client or the team. Remove a question once answered and record
 - Brand assets: logo files, colors, fonts, photos of the team, offices, cargo.
 - Which services matter most to the business and which bring the best margins? Is heavy lift and project cargo still a core line?
 - Main trade lanes and countries (Korea and Japan? India, given the old "Mumbai" image?).
-- Industries and example customers we may name, and any testimonials or case studies we can use.
+- Industries and example customers we may name, and any testimonials or case studies we can use. Would 3–5 clients leave a review (Google, Clutch)?
+- Who does GSP lose deals to? Which forwarders does Jason consider real competitors?
+- Which "very specific searches" does the team see GSP appearing for?
+- Industry memberships, networks or events (for example Breakbulk, forwarder networks)?
+- Partners we could name or exchange referrals with (crating, trucking, port operators)?
 
 ## Credentials and facts
 
@@ -20,7 +24,7 @@ Questions for the client or the team. Remove a question once answered and record
 
 - Domain registrar and DNS for `gspforwarding.com`.
 - Current WordPress hosting and admin login, and who the contractor is for the staging site.
-- Google Business Profile, Google Search Console, Google Analytics: do they exist, and who owns them?
+- Google Business Profile, Google Search Console, Google Analytics: do they exist, and who owns them? (Site Kit in WordPress is stuck; plan is Search Console via a DNS record instead.)
 - Email provider (Google Workspace, Microsoft 365, other).
 
 ## Team decisions
