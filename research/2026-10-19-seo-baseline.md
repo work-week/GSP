@@ -49,7 +49,9 @@ The Site Kit plugin is stuck at "preparing to set up". **Do not spend time fixin
 
 Instead, verify **Google Search Console as a Domain property through a DNS TXT record**. It does not depend on WordPress, survives the move to Webflow and later SvelteKit, and covers every subdomain. Search Console typically shows past search data once verified, so it should reveal which "very specific searches" GSP already appears for. Then import it into Bing Webmaster Tools.
 
-This needs DNS access and is a change to a client property, so it goes through the confirmation gate.
+This needs DNS access and is a change to a client property, so it goes through the confirmation gate. Timing is under discussion in [decision 0004](../decisions/0004-search-console-timing.md).
+
+Note: GA4 does not show search queries. Google withholds the words people searched from Analytics; only Search Console has them (GA4 can display them only when linked to Search Console).
 
 ## Before the old site is switched off
 

@@ -11,10 +11,10 @@ Last updated: 2026-10-19.
 ## Next
 
 1. Get answers to the top [open questions](open-questions.md): licenses, trade lanes, brand direction, who Jason loses deals to.
-2. With approval and DNS access: verify Google Search Console as a Domain property, and export current queries and URLs before the old site goes away.
-3. Review the contractor's staging site with screenshots.
-4. Sitemap and content plan for the Webflow build.
-5. Identify 5–8 true competitors.
+2. Decide Search Console timing ([decision 0004](../decisions/0004-search-console-timing.md)). Either way, build a full 301 redirect map before launch.
+3. Next meeting with Jason: [cue card](next-meeting.md).
+4. Review the contractor's staging site with screenshots.
+5. Sitemap and content plan for the Webflow build, benchmarked against IFT and Atlantic Pacific Lines ([direct competitors](../research/2026-10-19-direct-competitors.md)).
 6. Decide where logins are kept ([decision 0002](../decisions/0002-credentials.md)).
 
 ## Blocked on

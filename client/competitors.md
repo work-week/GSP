@@ -13,10 +13,15 @@ Last updated: 2026-10-19. Detail in [the competitor research](../research/2026-1
 
 - Craters & Freighters NJ (export crating), Mercer Transportation and Palco Transportation (heavy haul trucking).
 
-## True competitors (to research)
+## Direct competitors
 
-- NY/NJ forwarders doing project cargo (for example Harbor Freight Transport Corp., Newark).
-- Chicago-area forwarders of GSP's size.
-- Korean-American forwarders around Fort Lee and Bergen County.
-- Large digital forwarders that dominate "best forwarder" lists: Flexport, Expeditors, DHL Global Forwarding, C.H. Robinson.
-- Whoever Jason says he loses deals to.
+Detail in [direct competitors research](../research/2026-10-19-direct-competitors.md).
+
+- **The benchmark: International Freight Transport (IFT)** and **Atlantic Pacific Lines (APL)**, both New Jersey NVOCCs marketing project cargo and heavy lift, with credentials and content.
+- Benison Logistics (Englewood Cliffs), LavinStar America, Transmodal, Jagro, General Logistics International.
+- Name collisions: Global Shipping Services LLC (Springfield, NJ), Global Forwarding Enterprises (Manalapan, NJ).
+- Korean-American forwarders near Fort Lee (not visible in English search) and large Korean logistics groups on the Korea lane.
+- Giants on "best forwarder" lists: Kuehne + Nagel, DSV, DHL, C.H. Robinson, Expeditors, Flexport.
+- Still to confirm: whoever Jason says he loses deals to.
+
+Partners found during this research: Harbor Freight Transport (Port Newark OOG and heavy lift), heavy-haul trucking brokers, Barnhart Crane.

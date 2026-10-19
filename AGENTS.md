@@ -66,6 +66,8 @@ This repository is about GSP only. Never bring in names, accounts, or details fr
 | What we are delivering and when | [project/scope.md](project/scope.md) |
 | The long-term plan and business vision | [project/roadmap.md](project/roadmap.md) |
 | Questions waiting on the client | [project/open-questions.md](project/open-questions.md) |
+| Prep for the next client meeting | [project/next-meeting.md](project/next-meeting.md) |
+| Competitors and partners | [client/competitors.md](client/competitors.md) |
 | Accounts, domains, tools, where logins are kept | [map/accounts.md](map/accounts.md) |
 | Audits and research | [research/](research/) |
 | Why things are the way they are | [decisions/](decisions/) |
