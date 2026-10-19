@@ -6,4 +6,4 @@ Photos and files sent by GSP. One row per file, newest first.
 
 | Date received | File | What it shows | Usable on site? |
 | --- | --- | --- | --- |
-| 2026-10-20 | [Container loaded at dock](2026-10-20-container-loaded-at-dock.png) | A 20' container at a warehouse dock, packed floor to ceiling with stretch-wrapped cartons on pallets. Handwritten marks ("JM", "Offsite"), "FRAGILE" stamps and shipping labels visible. | Likely, after checks above. Good for an authentic "how we load" or ocean freight section. Phone photo: needs cropping and color correction; labels and handwriting must be blurred. |
+| 2026-10-20 | [Container loaded at dock](2026-10-20-container-loaded-at-dock.png) | A 20' container at a warehouse dock, packed floor to ceiling with stretch-wrapped cartons on pallets. Handwritten marks ("JM", "Offsite"), "FRAGILE" stamps and shipping labels visible. | **Yes.** Jason sent it in conversation with the team, which the team reads as wanting it on the site (2026-10-20). Still blur labels and handwriting. Good for an authentic "how we load" or ocean freight section. Phone photo: needs cropping and color correction; labels and handwriting must be blurred. |
