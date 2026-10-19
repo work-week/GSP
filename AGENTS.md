@@ -21,13 +21,29 @@ Before changing anything outside this repository (a website, an account, a DNS r
 
 A restatement, silence, or an earlier conversation is not approval for a new change. Read-only work (reading, researching, drafting inside this repo) does not need the gate.
 
+### Two modes
+
+How strictly these rules apply depends on what the session touches. Full explanation in [PRINCIPLES.md](PRINCIPLES.md).
+
+- **Brainstorm mode** (conversation, research, drafting inside this repo): start immediately; ask questions alongside the work, not before it.
+- **Work mode** (code, any client property, deploys, anything hard to undo): run the confirmation gate with **at least three** clarifying questions and wait for an explicit yes before writing code. Chesterton's fence front and center.
+- Switch to work mode the moment a session is about to change code or anything outside this repo, and say so. Krischan can switch explicitly ("work mode", "brainstorm mode"). When unsure, it is work mode.
+
 ### Chesterton's fence
 
-Do not remove, rename, or "clean up" anything you do not understand: on the client's live site, in their accounts, or in this repository. Check [decisions/](decisions/) and [logs/](logs/) first, then ask.
+Do not remove, rename, or clean something up until you know why it is there.
+
+That includes code, config, copy, a redirect, a branch, and a step in a process. If you cannot say what it is for, leave it. Find out first ([decisions/](decisions/), [logs/](logs/)). Then ask before you change it.
 
 ### Pareto principle
 
-Do the small part of the work that carries most of the result first.
+Start with the small part of the work that carries most of the result. About 20% of the effort usually drives about 80% of the outcome.
+
+When that high-leverage path is clear, do it first. Do not spend the session on low-impact busywork while the useful path is still open.
+
+### Jakob's law
+
+Design for familiarity and for the client's actual buyers. See [decision 0005](decisions/0005-familiar-utilitarian-design.md).
 
 ### Client-facing changes
 
@@ -62,6 +78,8 @@ This repository is about GSP only. Never bring in names, accounts, or details fr
 | Looking for | Go to |
 | --- | --- |
 | Where things stand right now | [project/status.md](project/status.md) |
+| How we work: modes and principles | [PRINCIPLES.md](PRINCIPLES.md) |
+| Photos and files from the client | [client/media/](client/media/) |
 | Who GSP is: services, offices, history | [client/company.md](client/company.md) |
 | Jason Kwon and other client contacts | [client/people.md](client/people.md) |
 | Brand, messaging, what the client dislikes | [client/brand.md](client/brand.md) |
