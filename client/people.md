@@ -16,6 +16,12 @@ Sources: the GSP site and profile PDF, his [LinkedIn profile](https://www.linked
 
 **LinkedIn:** Fort Lee, NJ; about 66 connections and 68 followers; no recent posts; the profile shows little beyond his title and education. His personal online presence is as thin as the company's.
 
+**Background signals for rapport** (estimates and hypotheses, not facts; confirm through conversation)
+- **Age:** college 1997–2001 suggests he was born around 1979, so roughly mid-to-late 40s in 2026. The team's impression was early 50s. Either way: Gen X, built his career pre-smartphone, and founded GSP himself in 2011.
+- **Heritage:** speaks Korean, wrote his senior thesis on the Korean economic crisis. Possibly Korean or Korean-American; unconfirmed. Do not assume it in conversation; let him bring it up.
+- **Likely values to test:** earned trust over flash, hard work and follow-through, personal relationships (his one testimonial praises him by name), being treated as the expert in his field.
+- **How to show respect:** do the homework visibly (know his services, his offices, his niche cargo), be on time and precise, put substance before polish, and let him teach us about freight. Genuine interest lands; performative cultural references can backfire.
+
 **Working with him**
 - He is skeptical of AI and has been clear about it. Respect that. In conversations with him, lead with outcomes (being found, leads, less spam, a site that represents GSP) rather than tools. Never misrepresent how the work is done if he asks.
 - He is very open to AEO/GEO (being cited by AI search and answer engines) and wants the site optimized for it "down to the dot."

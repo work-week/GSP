@@ -1,6 +1,6 @@
 # Global Shipping Partners: company
 
-Last updated: 2026-10-19. Sources: the live site ([gspforwarding.com](https://gspforwarding.com/), About and Contact pages), the company profile PDF linked from the Contact page (`GSP-Profile-2025.pdf`), the BBB listing, the Freightnet listing, and what the client told the team.
+Last updated: 2026-10-19. Sources: the live site ([gspforwarding.com](https://gspforwarding.com/), About and Contact pages), the [company profile PDF](https://gspforwarding.com/wp-content/uploads/2025/12/GSP-Profile-2025.pdf) linked only from the Contact page, the BBB listing, the Freightnet listing, and what the client told the team.
 
 ## Basics
 
