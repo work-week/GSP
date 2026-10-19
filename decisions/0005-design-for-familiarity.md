@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-19
 **Decided by:** Krischan
-**Status:** accepted
+**Status:** superseded by [0005 — Familiar, utilitarian design](0005-familiar-utilitarian-design.md). Both were recorded at the same time by parallel turns of one session on 2026-10-19; that file is the one to follow.
 
 ## Context
 

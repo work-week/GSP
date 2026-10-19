@@ -13,11 +13,6 @@ Pinned by Krischan, 2026-10-19. Move answers into the right files afterwards (se
 - **Networks or associations** (forwarder networks, trade associations, events like Breakbulk)
 - **Any partnerships** (crating, trucking, port operators, carriers) we could name or exchange referrals with
 
-- **Ideal client profile (ICP):** who are GSP's best customers today, and who do they want more of?
-  - Industry, company size, countries
-  - Who books the freight (job title, rough age, how they prefer to contact: phone, email, form)
-  - Could we see a customer or quote list grouped by industry and country?
-
 ## Ideal customer profile (ICP)
 
 The site design depends on this ([decision 0005](../decisions/0005-familiar-utilitarian-design.md)).
@@ -27,6 +22,7 @@ The site design depends on this ([decision 0005](../decisions/0005-familiar-util
 - Roughly how old and how tech-comfortable are they? Do they call, email or fill in forms?
 - Do any prefer Korean or Japanese?
 - Which customers does he want **more** of, and which does he want fewer of?
+- Could we see a customer or quote list grouped by industry and country?
 
 ## If there is time
 

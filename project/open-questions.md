@@ -4,7 +4,7 @@ Questions for the client or the team. Remove a question once answered and record
 
 ## Brand and content
 
-- Ideal client profile: best customers today vs. the ones GSP wants (industry, size, countries, the person who books freight). See [decision 0005](../decisions/0005-design-for-familiarity.md).
+- Ideal client profile: best customers today vs. the ones GSP wants (industry, size, countries, the person who books freight). See [decision 0005](../decisions/0005-familiar-utilitarian-design.md).
 
 - What specifically about the staging redesign does Jason dislike? Any sites (in or out of shipping) he likes?
 - Brand assets: logo files, colors, fonts, photos of the team, offices, cargo.

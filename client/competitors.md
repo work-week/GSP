@@ -20,7 +20,7 @@ Detail in [direct competitors research](../research/2026-10-19-direct-competitor
 - **The benchmark: International Freight Transport (IFT)** and **Atlantic Pacific Lines (APL)**, both New Jersey NVOCCs marketing project cargo and heavy lift, with credentials and content.
 - Benison Logistics (Englewood Cliffs), LavinStar America, Transmodal, Jagro, General Logistics International.
 - Name collisions: Global Shipping Services LLC (Springfield, NJ), Global Forwarding Enterprises (Manalapan, NJ).
-- Korean-American forwarders near Fort Lee (not visible in English search) and large Korean logistics groups on the Korea lane.
+- Korean-American forwarders in NY/NJ: barely visible in English search, but a Korean-language directory lists 128 trade and freight businesses (Far East Forwarding, Phoenix Cargo and others). Mostly offline or Korean-only sites. Large Korean logistics groups also compete on the Korea lane.
 - Giants on "best forwarder" lists: Kuehne + Nagel, DSV, DHL, C.H. Robinson, Expeditors, Flexport.
 - Still to confirm: whoever Jason says he loses deals to.
 
