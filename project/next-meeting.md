@@ -18,6 +18,16 @@ Pinned by Krischan, 2026-10-19. Move answers into the right files afterwards (se
   - Who books the freight (job title, rough age, how they prefer to contact: phone, email, form)
   - Could we see a customer or quote list grouped by industry and country?
 
+## Ideal customer profile (ICP)
+
+The site design depends on this ([decision 0005](../decisions/0005-familiar-utilitarian-design.md)).
+
+- Who are his best customers? Industry, company size, and where they are.
+- Who contacts GSP: owners, logistics managers, procurement, engineers on a project?
+- Roughly how old and how tech-comfortable are they? Do they call, email or fill in forms?
+- Do any prefer Korean or Japanese?
+- Which customers does he want **more** of, and which does he want fewer of?
+
 ## If there is time
 
 - Main trade lanes and countries (Korea and Japan?)

@@ -1,4 +1,4 @@
-# 2026-10-19 — Design principle and ICP question
+# 2026-10-19 — Design principle and ICP questions
 
 **Date:** October 19, 2026 (Asia/Manila)
 **Agent or person:** Claude Code
@@ -6,12 +6,12 @@
 
 ## Asked
 
-Record the design approach (familiar, utilitarian, Jakob's law, tailored to the client base) and add the ideal client profile question for Jason.
+Record the team's design approach (familiar, utilitarian, built for the ICP, Jakob's law) and plan to confirm GSP's ICP before designing.
 
 ## Done
 
 - Added decision 0005.
-- Added the ICP question to `project/next-meeting.md` and `project/open-questions.md`.
+- Added ICP questions to `project/next-meeting.md`.
 
 ## Changed
 
@@ -19,7 +19,7 @@ Record the design approach (familiar, utilitarian, Jakob's law, tailored to the 
 
 ## Open items
 
-- ICP answers from the GSP team.
+- ICP answers from Jason.
 
 ---
 
