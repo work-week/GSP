@@ -13,7 +13,7 @@ Agreed direction as of 2026-10-19. Confirm details with the client before treati
 - Start on a Webflow basic site plan for the core pages; upgrade to a CMS plan when the blog needs it.
 - Core pages (draft list, to confirm): Home, About (story, Jason, offices), Services (one page per service: freight forwarding, air, ocean FCL, heavy lift and project cargo, customs and documentation, consulting), Industries, Request a Quote, Contact.
 - Forms with spam protection; keep the Rate Inquiry fields.
-- Carry over or redirect every old URL that matters (`/about/`, `/request-a-quote/`, `/contact-2-2/`, and so on) so nothing that ranks or is linked breaks.
+- Carry over or redirect every old URL that matters (`/about/`, `/request-a-quote/`, `/contact-2-2/`, `/services`, `/freight-forwarding`, the `http` and `www` homepage variants, and so on; Semrush shows `/services` and `/freight-forwarding` indexed, 2026-10-19) so nothing that ranks or is linked breaks.
 
 ## 2. SEO, AEO and GEO groundwork
 

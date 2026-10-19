@@ -72,5 +72,6 @@ This repository is about GSP only. Never bring in names, accounts, or details fr
 | Competitors and partners | [client/competitors.md](client/competitors.md) |
 | Accounts, domains, tools, where logins are kept | [map/accounts.md](map/accounts.md) |
 | Audits and research | [research/](research/) |
+| Reports and other client deliverables | [deliverables/](deliverables/) |
 | Why things are the way they are | [decisions/](decisions/) |
 | What already happened | [logs/](logs/) |

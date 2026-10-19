@@ -1,5 +1,7 @@
 # 2026-10-19 — SEO and performance baseline (before rebuild)
 
+More detail (metrics, WAVE, Semrush, backlinks): [baseline detail note](2026-10-19-baseline-detail-wave-semrush-backlinks.md). Client report: [deliverables/2026-10-19-baseline-audit/](../deliverables/2026-10-19-baseline-audit/).
+
 **Method:** the team ran Google PageSpeed Insights (mobile and desktop) and a SEOmator on-page audit of the homepage on 2026-10-19, around 6:54 PM. Originals: [SEOmator audit PDF](files/2026-10-19-seomator-audit.pdf) and [score screenshot](files/2026-10-19-pagespeed-and-seomator-scores.jpg). The team also checked the Google Site Kit plugin in WordPress. This file is the "before" picture to compare the new site against.
 
 ## Scores

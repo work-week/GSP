@@ -16,6 +16,12 @@ Questions for the client or the team. Remove a question once answered and record
 - Industry memberships, networks or events (for example Breakbulk, forwarder networks)?
 - Partners we could name or exchange referrals with (crating, trucking, port operators)?
 
+## Search and data
+
+- Has anyone (a past contractor or agency) ever bought links or SEO packages for gspforwarding.com? It changes how we treat the ~1.5K spam backlinks ([decision 0006](../decisions/0006-spam-backlinks.md)).
+- Recent form submissions (last 1–3 months), split into genuine inquiries and junk, for the inquiry baseline. The team has asked GSP (2026-10-19).
+- A Yellow Pages listing titled "Hanjin Logistics Inc in Fort Lee, NJ" links to gspforwarding.com. Does Jason know why (shared office, old listing)?
+
 ## Credentials and facts
 
 - Licenses held: FMC (OTI/NVOCC), U.S. customs broker, IATA, C-TPAT, others? License numbers to display.

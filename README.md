@@ -11,6 +11,7 @@ Knowledge base for our work with Global Shipping Partners: a freight forwarder f
 | [client/](client/) | Who GSP is: company, people, brand |
 | [project/](project/) | Our work: status, scope, roadmap, open questions |
 | [research/](research/) | Audits and research, dated |
+| [deliverables/](deliverables/) | Reports and other files we hand to the client |
 | [map/](map/) | Accounts, domains, tools, where logins are kept |
 | [decisions/](decisions/) | Why things are the way they are |
 | [logs/](logs/) | What already happened |

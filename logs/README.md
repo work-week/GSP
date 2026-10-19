@@ -4,6 +4,7 @@ What already happened. Newest first. Use [the template](../templates/log.md), na
 
 | Date | Topic |
 | --- | --- |
+| 2026-10-19 | [Baseline audit report, WAVE, Semrush and backlinks](2026-10-19-baseline-audit-report.md) |
 | 2026-10-19 | [Design principle and ICP question](2026-10-19-design-principle-and-icp.md) |
 | 2026-10-19 | [Status as checklist and timeline](2026-10-19-status-format.md) |
 | 2026-10-19 | [Design principle and ICP questions](2026-10-19-design-principle-and-icp.md) |

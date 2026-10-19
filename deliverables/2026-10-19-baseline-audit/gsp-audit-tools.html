@@ -1,0 +1,552 @@
+<title>GSP Website Audit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one plain white section per testing tool, each laid out the way that tool shows its own results. Single light theme on purpose, to match the tools. */
+:root {
+  color-scheme: light;
+  --bg: #f1f3f4;
+  --page: #ffffff;
+  --text: #202124;
+  --text-2: #5f6368;
+  --line: #dadce0;
+  --line-2: #ebedef;
+  --link: #1a73e8;
+  --fail: #ff4e42; --fail-text: #c7221f; --fail-bg: #fff0ef;
+  --avg: #ffa400;  --avg-text: #c33300;  --avg-bg: #fff7e6;
+  --pass: #0cce6b; --pass-text: #008800; --pass-bg: #e7f9ef;
+  --info: #9aa0a6;
+  --wave-err: #d0312d; --wave-alert: #e08600; --wave-feat: #2e8540; --wave-struct: #2a5db0; --wave-aria: #6b3fa0; --wave-aim: #f2c200;
+  --sans: "Roboto", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Roboto Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 14px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 24px 48px;
+}
+.file { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+.section { background: var(--page); border: 1px solid var(--line); border-radius: 8px; padding: clamp(18px, 4vw, 36px); display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+h1, h2, h3, h4 { margin: 0; font-weight: 500; line-height: 1.25; text-wrap: balance; }
+h1 { font-size: 24px; }
+h2 { font-size: 22px; }
+h3 { font-size: 16px; }
+h4 { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); font-weight: 500; }
+p { margin: 0; max-width: 70ch; }
+.muted { color: var(--text-2); }
+.small { font-size: 12px; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Section heading */
+.sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.sec-head .meta { font-size: 12px; color: var(--text-2); }
+
+/* URL bar and tabs, as the tool shows them */
+.urlbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.urlbar .field { flex: 1 1 260px; min-width: 0; border: 1px solid var(--line); border-radius: 4px; padding: 7px 12px; font-size: 13px; overflow-wrap: anywhere; }
+.urlbar .stamp { font-size: 12px; color: var(--text-2); }
+.tabs { display: flex; justify-content: center; gap: 28px; border-bottom: 1px solid var(--line-2); }
+.tabs span { padding: 6px 2px 8px; font-size: 13px; color: var(--text-2); display: inline-flex; gap: 6px; align-items: center; }
+.tabs span.on { color: var(--link); border-bottom: 2px solid var(--link); font-weight: 500; }
+.tabs svg { width: 14px; height: 14px; }
+
+.row-line { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line-2); font-size: 13.5px; flex-wrap: wrap; }
+.row-line .right { color: var(--link); font-size: 12.5px; }
+
+/* Gauges */
+.gauges { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 22px; padding: 6px 0 10px; border-bottom: 1px solid var(--line-2); }
+.gauge { width: 100px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; font-size: 12px; }
+.gauge svg { width: 64px; height: 64px; }
+.gauge .lbl { line-height: 1.25; }
+.pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 14px; padding: 4px 12px; font-size: 14px; margin-top: 16px; margin-bottom: 6px; }
+.pill.fail { background: var(--fail-bg); color: var(--fail-text); }
+.pill.avg { background: var(--avg-bg); color: var(--avg-text); }
+
+.perf-main { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 28px; align-items: start; }
+.perf-main .big { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.perf-main .big svg { width: 120px; height: 120px; }
+.perf-main .big .t { font-size: 18px; }
+.scale { display: flex; gap: 14px; justify-content: center; font-size: 11px; color: var(--text-2); flex-wrap: wrap; }
+.scale span { display: inline-flex; align-items: center; gap: 4px; }
+
+/* Lighthouse-style status icons */
+.ic { display: inline-block; flex: none; width: 10px; height: 10px; }
+.ic.pass { background: var(--pass); border-radius: 50%; }
+.ic.avg { background: var(--avg); }
+.ic.fail { width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 10px solid var(--fail); }
+.ic.info { border: 1.5px solid var(--info); border-radius: 50%; }
+
+.metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
+.metric { padding: 10px 0 12px; border-top: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.metric .name { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.metric .val { font-size: 22px; padding-left: 18px; font-variant-numeric: tabular-nums; }
+.metric .val.fail { color: var(--fail-text); } .metric .val.avg { color: var(--avg-text); } .metric .val.pass { color: var(--pass-text); }
+.capture { background: #f8f9fa; border-radius: 4px; padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: 11.5px; color: var(--text-2); }
+
+.audit-group { display: flex; flex-direction: column; }
+.audit-group h4 { padding: 14px 0 6px; }
+.audit { display: flex; align-items: center; gap: 10px; padding: 9px 2px; border-top: 1px solid var(--line-2); font-size: 13.5px; }
+.audit:last-of-type { border-bottom: 1px solid var(--line-2); }
+.audit .save { color: var(--fail-text); }
+.audit .save.avg { color: var(--avg-text); }
+.audit code, .mono { font-family: var(--mono); font-size: 12px; color: #1967d2; }
+.passed { font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-2); padding-top: 8px; }
+
+.cat-head { display: flex; align-items: center; gap: 14px; padding-top: 10px; }
+.cat-head svg { width: 52px; height: 52px; flex: none; }
+.cat-head .t { font-size: 18px; }
+
+/* Our notes, kept visually separate from tool output */
+.note { border: 1px solid var(--line); border-radius: 4px; background: #fafbfc; padding: 12px 16px; display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; }
+.note b.tag { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); font-weight: 500; }
+.note ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; }
+
+/* Re-test strip */
+.retest-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th { text-align: left; font-weight: 500; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-2); padding: 6px 10px 6px 0; border-bottom: 1px solid var(--line); }
+td { padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line-2); vertical-align: top; }
+td.v { font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.blank { color: var(--info); letter-spacing: 0.15em; }
+.src { font-size: 11.5px; color: var(--text-2); }
+
+/* ---------- WAVE ---------- */
+.wave { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 24px; align-items: start; }
+.wave-panel { border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+.wave-panel .bar { background: #e8eaed; padding: 8px 12px; font-size: 13px; display: flex; flex-direction: column; gap: 2px; }
+.wave-sum { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 6px; padding: 16px 10px 10px; text-align: center; }
+.wave-sum div { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 11.5px; color: var(--text-2); }
+.wave-sum b { font-size: 24px; font-weight: 400; color: var(--text); display: inline-flex; align-items: center; gap: 6px; line-height: 1.1; }
+.wi { display: inline-block; width: 16px; height: 16px; border-radius: 3px; flex: none; }
+.wi.err { background: var(--wave-err); }
+.wi.con { background: transparent; border: 3px solid var(--wave-err); border-radius: 50%; }
+.wi.alert { width: 0; height: 0; border-radius: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-bottom: 16px solid var(--wave-alert); }
+.wi.feat { background: var(--wave-feat); border-radius: 50%; }
+.wi.struct { background: var(--wave-struct); }
+.wi.aria { background: var(--wave-aria); }
+.aim { padding: 6px 14px 14px; text-align: center; font-size: 12.5px; }
+.aim b { font-size: 20px; font-weight: 400; }
+.aim .track { height: 8px; background: #e8eaed; border-radius: 4px; margin-top: 6px; overflow: hidden; }
+.aim .fill { height: 100%; width: 58%; background: var(--wave-aim); }
+.wave-cats { display: flex; flex-direction: column; gap: 10px; }
+.wcat { border: 1px solid var(--line); border-radius: 4px; padding: 10px 14px; }
+.wcat h3 { display: flex; align-items: center; gap: 8px; font-size: 15px; padding-bottom: 6px; }
+.wcat ul { list-style: none; margin: 0; padding: 0; }
+.wcat li { display: flex; justify-content: space-between; gap: 10px; padding: 5px 0; border-top: 1px solid var(--line-2); font-size: 13px; }
+.wcat li span:last-child { font-variant-numeric: tabular-nums; color: var(--text-2); }
+
+/* ---------- Local grid ---------- */
+.grid-tool { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 20px; align-items: start; }
+.settings { border: 1px solid var(--line); border-radius: 4px; }
+.settings dl { margin: 0; }
+.settings div { padding: 8px 12px; border-top: 1px solid var(--line-2); }
+.settings div:first-child { border-top: 0; }
+.settings dt { font-size: 11px; color: var(--text-2); }
+.settings dd { margin: 0; font-size: 13px; }
+.status-pill { display: inline-block; font-size: 11.5px; padding: 1px 8px; border-radius: 10px; background: var(--avg-bg); color: var(--avg-text); }
+.grid-maps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.grid-card { border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+.grid-card .cap { padding: 8px 12px; font-size: 13px; font-weight: 500; border-bottom: 1px solid var(--line-2); display: flex; justify-content: space-between; gap: 8px; }
+.grid-card svg { display: block; width: 100%; height: auto; background: #f4f6f3; }
+.grid-card svg text { font-family: var(--sans); }
+.kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 4px; }
+.kpis div { padding: 10px 14px; border-left: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 2px; }
+.kpis div:first-child { border-left: 0; }
+.kpis span { font-size: 11.5px; color: var(--text-2); }
+.kpis b { font-size: 22px; font-weight: 400; color: var(--info); }
+
+/* ---------- AEO ---------- */
+.cards { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 16px; }
+.card { border: 1px solid var(--line); border-radius: 6px; padding: 14px 18px 16px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.card .chip { align-self: flex-start; font-size: 12.5px; padding: 2px 10px; border-radius: 4px; background: #f1ecfb; color: #6b3fa0; }
+.card .chip.seo { background: #e8f0fe; color: #1a56c4; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.stats.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.stats div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.stats span { font-size: 12px; color: var(--text-2); }
+.stats b { font-size: 24px; font-weight: 500; color: #1a56c4; font-variant-numeric: tabular-nums; }
+.stats b small { font-size: 11px; font-weight: 400; color: var(--text-2); margin-left: 4px; }
+.engines td { font-size: 12.5px; }
+.dist { display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; }
+.dist .r { display: grid; grid-template-columns: 70px minmax(0, 1fr) 40px; gap: 8px; align-items: center; }
+.dist .t { height: 10px; background: #eef0f7; border-radius: 2px; overflow: hidden; }
+.dist .f { height: 100%; background: #6666d6; }
+
+/* ---------- Cover ---------- */
+.contents .audit { justify-content: space-between; flex-wrap: wrap; }
+.contents .audit .l { display: flex; gap: 10px; align-items: center; font-weight: 500; }
+.contents .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.contents .chips span { font-size: 12px; padding: 1px 8px; border-radius: 10px; font-variant-numeric: tabular-nums; }
+.c-fail { background: var(--fail-bg); color: var(--fail-text); }
+.c-avg { background: var(--avg-bg); color: var(--avg-text); }
+.c-pass { background: var(--pass-bg); color: var(--pass-text); }
+.c-none { background: #f1f3f4; color: var(--text-2); }
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+.facts div { padding: 8px 0; border-bottom: 1px solid var(--line-2); min-width: 0; }
+.facts dt { font-size: 11px; color: var(--text-2); }
+.facts dd { margin: 0; font-size: 13.5px; overflow-wrap: anywhere; }
+.facts dl { margin: 0; }
+
+a { color: var(--link); }
+
+@media (max-width: 680px) {
+  .perf-main, .wave, .grid-tool, .cards, .grid-maps { grid-template-columns: minmax(0, 1fr); }
+  .metrics, .facts { grid-template-columns: minmax(0, 1fr); }
+  .stats.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gauge { width: 84px; }
+}
+
+@page { size: Letter; margin: 0.5in 0.55in 0.6in;
+  @bottom-left { content: "gspforwarding.com · Website audit · Oct 19, 2026"; font-family: Roboto, sans-serif; font-size: 8pt; color: #5f6368; }
+  @bottom-right { content: counter(page) " / " counter(pages); font-family: Roboto, sans-serif; font-size: 8pt; color: #5f6368; }
+}
+@media print {
+  body { background: #fff; padding: 0; font-size: 9.5pt; }
+  .file { max-width: none; gap: 0; }
+  .section { border: 0; border-radius: 0; padding: 0; gap: 14px; break-before: page; }
+  .section:first-child { break-before: auto; }
+  .audit, .metric, .note, .wcat, .grid-card, .card, tr, .gauges, .perf-main, .cat-head, .kpis, .retest { break-inside: avoid; }
+  .cat-head { break-after: avoid; }
+  .audit { padding: 6px 2px; }
+}
+</style>
+
+<main class="file">
+
+<!-- ================= COVER ================= -->
+<section class="section" id="cover">
+  <div class="sec-head">
+    <h1>Website audit</h1>
+    <span class="meta">Baseline · Oct 19, 2026</span>
+  </div>
+  <div class="urlbar">
+    <div class="field">https://gspforwarding.com/</div>
+  </div>
+  <dl class="facts">
+    <div><dt>Prepared for</dt><dd>Global Shipping Partners, LLC</dd></div>
+    <div><dt>Prepared by</dt><dd>Work Week</dd></div>
+    <div><dt>Page tested</dt><dd>Homepage</dd></div>
+    <div><dt>Re-test</dt><dd>December 2026, same tools and settings</dd></div>
+  </dl>
+
+  <div class="contents audit-group">
+    <h4>Contents</h4>
+    <div class="audit"><span class="l"><span class="ic fail"></span>PageSpeed Insights • Mobile</span><span class="chips"><span class="c-fail">Performance 41</span><span class="c-avg">Accessibility 67</span><span class="c-pass">Best Practices 92</span><span class="c-pass">SEO 92</span></span></div>
+    <div class="audit"><span class="l"><span class="ic avg"></span>PageSpeed Insights • Desktop</span><span class="chips"><span class="c-avg">Performance 76</span><span class="c-avg">Accessibility 78</span><span class="c-pass">Best Practices 96</span><span class="c-pass">SEO 92</span></span></div>
+    <div class="audit"><span class="l"><span class="ic fail"></span>WAVE • Accessibility</span><span class="chips"><span class="c-fail">5 errors</span><span class="c-fail">9 contrast errors</span><span class="c-avg">13 alerts</span><span class="c-avg">AIM 5.8/10</span></span></div>
+    <div class="audit"><span class="l"><span class="ic info"></span>Local SEO Grid</span><span class="chips"><span class="c-none">Not started: no Google Business Profile yet</span></span></div>
+    <div class="audit"><span class="l"><span class="ic fail"></span>AEO • AI search visibility</span><span class="chips"><span class="c-fail">0 AI mentions</span><span class="c-fail">3 ranking keywords</span><span class="c-fail">Authority Score 2</span></span></div>
+  </div>
+
+  <div class="note">
+    <b class="tag">How to read this report</b>
+    <p>Each section shows one tool's results laid out the way the tool shows them. Our comments are in boxes like this one. The same tests will be run again in December 2026, and each section ends with the numbers we will compare.</p>
+    <div class="scale" style="justify-content:flex-start"><span><i class="ic fail"></i>0–49</span><span><i class="ic avg"></i>50–89</span><span><i class="ic pass"></i>90–100</span><span><i class="ic info"></i>Informational</span></div>
+  </div>
+</section>
+
+<!-- ================= PSI MOBILE ================= -->
+<section class="section psi" id="psi-mobile" data-report="mobile">
+  <div class="sec-head"><h2>PageSpeed Insights • Mobile</h2><span class="meta">Google PageSpeed Insights</span></div>
+</section>
+
+<!-- ================= PSI DESKTOP ================= -->
+<section class="section psi" id="psi-desktop" data-report="desktop">
+  <div class="sec-head"><h2>PageSpeed Insights • Desktop</h2><span class="meta">Google PageSpeed Insights</span></div>
+</section>
+
+<!-- ================= WAVE ================= -->
+<section class="section" id="wave">
+  <div class="sec-head"><h2>WAVE • Accessibility</h2><span class="meta">WebAIM WAVE · Oct 19, 2026 · Styles on</span></div>
+  <div class="urlbar"><div class="field">https://gspforwarding.com</div></div>
+
+  <div class="wave">
+    <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+    <div class="wave-panel">
+      <div class="bar"><b style="font-weight:500">Summary</b></div>
+      <div class="wave-sum">
+        <div><b><i class="wi err"></i>5</b>Errors</div>
+        <div><b><i class="wi con"></i>9</b>Contrast Errors</div>
+        <div><b><i class="wi alert"></i>13</b>Alerts</div>
+        <div><b><i class="wi feat"></i>9</b>Features</div>
+        <div><b><i class="wi struct"></i>21</b>Structure</div>
+        <div><b><i class="wi aria"></i>1</b>ARIA</div>
+      </div>
+      <div class="aim">AIM Score: <b>5.8</b> out of 10<div class="track"><div class="fill"></div></div></div>
+    </div>
+      <div class="wcat"><h3><i class="wi feat"></i>9 Features</h3><ul>
+      <li><span>Null or empty alternative text</span><span>6</span></li>
+      <li><span>Linked image with alternative text</span><span>1</span></li>
+      <li><span>Image button with alternative text</span><span>1</span></li>
+      <li><span>Language</span><span>1</span></li></ul></div>
+      <div class="note">
+    <b class="tag">Our notes</b>
+    <ul>
+      <li>The 9 contrast errors are text too faint to read against its background.</li>
+      <li>4 images have no description, 3 of them links, so screen readers announce them as unnamed links.</li>
+      <li>One form field has no label. Forms are where inquiries arrive.</li>
+      <li>5 top-level (H1) headings; a page should have one.</li>
+      <li>Automated tools find only part of accessibility issues. We will also check the new site by hand.</li>
+    </ul>
+  </div>
+    </div>
+
+    <div class="wave-cats">
+      <div class="wcat"><h3><i class="wi err"></i>5 Errors</h3><ul>
+        <li><span>Missing alternative text</span><span>1</span></li>
+        <li><span>Linked image missing alternative text</span><span>3</span></li>
+        <li><span>Missing form label</span><span>1</span></li></ul></div>
+      <div class="wcat"><h3><i class="wi con"></i>9 Contrast Errors</h3><ul>
+        <li><span>Very low contrast</span><span>9</span></li></ul></div>
+      <div class="wcat"><h3><i class="wi alert"></i>13 Alerts</h3><ul>
+        <li><span>Image with title</span><span>2</span></li>
+        <li><span>Skipped heading level</span><span>2</span></li>
+        <li><span>Redundant link</span><span>8</span></li>
+        <li><span>Very small text</span><span>1</span></li></ul></div>
+      <div class="wcat"><h3><i class="wi struct"></i>21 Structural Elements</h3><ul>
+      <li><span>Heading level 1</span><span>5</span></li>
+      <li><span>Heading level 2</span><span>1</span></li>
+      <li><span>Heading level 3</span><span>5</span></li>
+      <li><span>Unordered list</span><span>4</span></li>
+      <li><span>Header · Navigation · Footer</span><span>1 · 1 · 1</span></li>
+      <li><span>Aside</span><span>3</span></li>
+      <li><span>ARIA</span><span>1</span></li></ul></div>
+    </div>
+  </div>
+
+
+
+  <div class="retest">
+    <h4 style="padding-bottom:6px">For the re-test</h4>
+    <div class="retest-wrap"><table>
+      <thead><tr><th>Measure</th><th>Oct 19, 2026</th><th>Target</th><th>Dec 2026</th></tr></thead>
+      <tbody>
+        <tr><td>Errors</td><td class="v">5</td><td class="v">0</td><td class="blank">——</td></tr>
+        <tr><td>Contrast errors</td><td class="v">9</td><td class="v">0</td><td class="blank">——</td></tr>
+        <tr><td>Alerts</td><td class="v">13</td><td class="v">Reviewed, only intentional ones left</td><td class="blank">——</td></tr>
+        <tr><td>AIM score</td><td class="v">5.8 / 10</td><td class="v">9+</td><td class="blank">——</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- ================= LOCAL GRID ================= -->
+<section class="section" id="grid">
+  <div class="sec-head"><h2>Local SEO Grid</h2><span class="meta">Google Maps rank grid · not yet run</span></div>
+
+  <div class="grid-tool">
+    <div class="settings"><dl>
+      <div><dt>Business</dt><dd>Global Shipping Partners</dd></div>
+      <div><dt>Google Business Profile</dt><dd><span class="status-pill">Not created yet</span></dd></div>
+      <div><dt>Keyword (proposed)</dt><dd>freight forwarder</dd></div>
+      <div><dt>Locations</dt><dd>Fort Lee, NJ<br>Schaumburg, IL</dd></div>
+      <div><dt>Grid</dt><dd>7 × 7 points</dd></div>
+      <div><dt>First scan</dt><dd>When the profile goes live, just before launch</dd></div>
+    </dl></div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+      <div class="kpis">
+        <div><span>Average rank</span><b>—</b></div>
+        <div><span>Points in top 3</span><b>—</b></div>
+        <div><span>Points found</span><b>—</b></div>
+      </div>
+      <div class="grid-maps">
+        <div class="grid-card"><div class="cap"><span>Fort Lee, NJ</span><span class="muted" style="font-weight:400">No data</span></div><svg class="rank-grid" viewBox="0 0 280 280" role="img" aria-label="Empty 7 by 7 rank grid around the Fort Lee office. No scan yet."></svg></div>
+        <div class="grid-card"><div class="cap"><span>Schaumburg, IL</span><span class="muted" style="font-weight:400">No data</span></div><svg class="rank-grid" viewBox="0 0 280 280" role="img" aria-label="Empty 7 by 7 rank grid around the Schaumburg office. No scan yet."></svg></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b class="tag">Our notes</b>
+    <ul>
+      <li>A rank grid searches the keyword from each point on the map and records where the business appears in Google Maps results at that point.</li>
+      <li>GSP has no Google Business Profile yet, so there is nothing to rank. The grids are empty on purpose.</li>
+      <li>The first scan sets the baseline. Later scans show how far around each office GSP appears.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= AEO ================= -->
+<section class="section" id="aeo">
+  <div class="sec-head"><h2>AEO • AI search visibility</h2><span class="meta">Semrush Domain Overview · Oct 19, 2026 · Desktop</span></div>
+  <div class="urlbar"><div class="field">gspforwarding.com</div><span class="stamp">Root domain · Worldwide</span></div>
+
+  <div class="cards">
+    <div class="card">
+      <span class="chip">AI Search</span>
+      <div class="stats">
+        <div><span>AI Visibility</span><b>0</b></div>
+        <div><span>Mentions</span><b>0</b></div>
+        <div><span>Cited Pages</span><b>0</b></div>
+      </div>
+      <table class="engines">
+        <thead><tr><th>Platform</th><th>Mentions</th><th>Cited pages</th></tr></thead>
+        <tbody>
+          <tr><td>ChatGPT</td><td class="v">0</td><td class="v">0</td></tr>
+          <tr><td>Google AI Overview</td><td class="v">0</td><td class="v">0</td></tr>
+          <tr><td>Google AI Mode</td><td class="v">0</td><td class="v">0</td></tr>
+          <tr><td>Gemini</td><td class="v">0</td><td class="v">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <span class="chip seo">SEO</span>
+      <div class="stats four">
+        <div><span>Authority Score</span><b>2</b></div>
+        <div><span>Organic Traffic</span><b>0</b></div>
+        <div><span>Organic Keywords</span><b>3<small>−40%</small></b></div>
+        <div><span>Paid Keywords</span><b>0</b></div>
+      </div>
+      <div>
+        <h4 style="padding-bottom:6px">Top organic keywords · US</h4>
+        <table>
+          <thead><tr><th>Keyword</th><th>Pos.</th><th>Volume</th><th>Traffic</th></tr></thead>
+          <tbody>
+            <tr><td>jason shipping</td><td class="v">44</td><td class="v">170</td><td class="v">0</td></tr>
+            <tr><td>global sourcing partner</td><td class="v">85</td><td class="v">40</td><td class="v">0</td></tr>
+            <tr><td>global logistics partner</td><td class="v">88</td><td class="v">50</td><td class="v">0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note" style="margin-top:auto">
+    <b class="tag">Our notes</b>
+    <ul>
+      <li>ChatGPT, Google's AI answers and Gemini do not mention or cite GSP today.</li>
+      <li>The site ranks for 3 keywords, all outside the first two pages, and gets no measurable search traffic.</li>
+      <li>Semrush figures are estimates from its own data. Google Search Console will give exact numbers once connected.</li>
+    </ul>
+  </div>
+    </div>
+  </div>
+
+  <div class="audit-group">
+    <h4>What answer engines can read on the site</h4>
+    <div class="audit"><span class="ic fail"></span>No structured data (JSON-LD) describing the company, offices or services<span class="muted small" style="margin-left:auto">SEOmator</span></div>
+    <div class="audit"><span class="ic fail"></span>Homepage has 138 words; most services are only in a PDF<span class="muted small" style="margin-left:auto">SEOmator</span></div>
+    <div class="audit"><span class="ic fail"></span><code>llms.txt</code> not found (request timed out)<span class="muted small" style="margin-left:auto">PageSpeed Insights</span></div>
+    <div class="audit"><span class="ic fail"></span>Agentic Browsing 1/3 on mobile, 1/2 on desktop<span class="muted small" style="margin-left:auto">PageSpeed Insights</span></div>
+    <div class="audit"><span class="ic pass"></span>AI crawlers are not blocked<span class="muted small" style="margin-left:auto">SEOmator</span></div>
+    <div class="audit"><span class="ic pass"></span>Semantic page structure present (header, nav, sections, footer)<span class="muted small" style="margin-left:auto">SEOmator</span></div>
+  </div>
+
+
+  <div class="retest">
+    <h4 style="padding-bottom:6px">For the re-test</h4>
+    <div class="retest-wrap"><table>
+      <thead><tr><th>Measure</th><th>Oct 19, 2026</th><th>Target</th><th>Dec 2026</th></tr></thead>
+      <tbody>
+        <tr><td>AI mentions (all platforms)</td><td class="v">0</td><td class="v">First mentions</td><td class="blank">——</td></tr>
+        <tr><td>Organic keywords</td><td class="v">3</td><td class="v">Growing, incl. service terms</td><td class="blank">——</td></tr>
+        <tr><td>Structured data</td><td class="v">None</td><td class="v">Company, both offices, services</td><td class="blank">——</td></tr>
+        <tr><td><code>llms.txt</code></td><td class="v">Missing</td><td class="v">Present</td><td class="blank">——</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  function rate(n) { return n >= 90 ? "pass" : n >= 50 ? "avg" : "fail"; }
+  function gauge(score, size) {
+    var r = 26, c = 2 * Math.PI * r, k = rate(score);
+    var col = { pass: "var(--pass)", avg: "var(--avg)", fail: "var(--fail)" }[k];
+    var bg = { pass: "var(--pass-bg)", avg: "var(--avg-bg)", fail: "var(--fail-bg)" }[k];
+    var tc = { pass: "var(--pass-text)", avg: "var(--avg-text)", fail: "var(--fail-text)" }[k];
+    return '<svg viewBox="0 0 64 64" role="img" aria-label="Score ' + score + ' out of 100">' +
+      '<circle cx="32" cy="32" r="' + r + '" fill="' + bg + '" stroke="' + bg + '" stroke-width="5"/>' +
+      '<circle cx="32" cy="32" r="' + r + '" fill="none" stroke="' + col + '" stroke-width="5" stroke-linecap="round" stroke-dasharray="' + (c * score / 100).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 32 32)"/>' +
+      '<text x="32" y="38" text-anchor="middle" font-family="Roboto, Arial, sans-serif" font-size="' + (size || 18) + '" fill="' + tc + '">' + score + '</text></svg>';
+  }
+  function ic(k) { return '<span class="ic ' + k + '"></span>'; }
+  function audits(list) {
+    return list.map(function (a) {
+      var save = a[2] ? ' <span class="save' + (a[0] === "avg" ? " avg" : "") + '">— ' + a[2] + '</span>' : "";
+      return '<div class="audit">' + ic(a[0]) + '<span>' + a[1] + save + '</span></div>';
+    }).join("");
+  }
+  function group(title, list) { return '<div class="audit-group"><h4>' + title + '</h4>' + audits(list) + '</div>'; }
+  function cat(score, name, desc) { return '<div class="cat-head">' + gauge(score, 18) + '<div><div class="t">' + name + '</div>' + (desc ? '<p class="muted small">' + desc + '</p>' : '') + '</div></div>'; }
+
+  var a11y = function (passed) { return cat(this.scores[1], "Accessibility", "Automated checks find only part of accessibility issues; a manual review is also needed.") +
+    group("Names and labels", [["fail", "Image elements do not have <code>[alt]</code> attributes"]]) +
+    group("Best practices", [["fail", "<code>[user-scalable=\"no\"]</code> is used in the <code>&lt;meta name=\"viewport\"&gt;</code> element or the <code>[maximum-scale]</code> attribute is less than 5"], ["fail", "Touch targets do not have sufficient size or spacing"], ["fail", "Document does not have a main landmark"], ["info", "Identical links have the same purpose"]]) +
+    group("Contrast", [["fail", "Background and foreground colors do not have a sufficient contrast ratio"]]) +
+    group("Navigation", [["fail", "Heading elements are not in a sequentially-descending order"]]) +
+    '<p class="passed">Passed audits (' + passed + ') · Additional items to manually check (10)</p>'; };
+
+  var R = {
+    mobile: {
+      tab: "mobile", scores: [41, 67, 92, 92], agentic: ["fail", "1/3"],
+      metrics: [["FCP", "First Contentful Paint", "2.9 s", "avg"], ["LCP", "Largest Contentful Paint", "6.7 s", "fail"], ["TBT", "Total Blocking Time", "0 ms", "pass"], ["CLS", "Cumulative Layout Shift", "0.868", "fail"], ["SI", "Speed Index", "7.2 s", "fail"]],
+      capture: ["Captured at Oct 19, 2026, 6:54 PM GMT+8", "Emulated Moto G Power with Lighthouse 13.5.0", "Slow 4G throttling", "Initial page load", "Single page session"],
+      insights: [["fail", "Improve image delivery", "Est savings of 443 KiB"], ["fail", "Render-blocking requests", "Est savings of 2,220 ms"], ["fail", "Use efficient cache lifetimes", "Est savings of 299 KiB"], ["fail", "Layout shift culprits"], ["fail", "LCP breakdown"], ["fail", "LCP request discovery"], ["fail", "Network dependency tree"], ["avg", "Font display", "Est savings of 10 ms"], ["info", "3rd parties"]],
+      passedPerf: 15, passedA11y: 11,
+      bp: [["fail", "Displays images with incorrect aspect ratio"], ["fail", "Serves images with low resolution"]], passedBP: 11,
+      agentAudits: [["fail", "Cumulative Layout Shift", "0.868"], ["fail", "<code>llms.txt</code> does not follow recommendations: fetch of llms.txt failed, timed out fetching resource"]],
+      notes: ["On a phone, the main content appears after 6.7 s. Google's target is 2.5 s or less.", "The page also moves while loading (layout shift 0.868; target 0.1 or less), which can cause mis-taps.", "Largest savings: image delivery (443 KiB), render-blocking files (about 2.2 s) and caching (299 KiB).", "Google shows No Data for real users: the site does not get enough visits to be measured."],
+      retest: [["Performance", "41", "90+"], ["Accessibility", "67", "95+"], ["Largest Contentful Paint", "6.7 s", "2.5 s or less"], ["Cumulative Layout Shift", "0.868", "0.1 or less"], ["Real-user data", "No Data", "Data available"]]
+    },
+    desktop: {
+      tab: "desktop", scores: [76, 78, 96, 92], agentic: ["avg", "1/2"],
+      metrics: [["FCP", "First Contentful Paint", "0.8 s", "pass"], ["LCP", "Largest Contentful Paint", "1.3 s", "avg"], ["TBT", "Total Blocking Time", "0 ms", "pass"], ["CLS", "Cumulative Layout Shift", "0.457", "fail"], ["SI", "Speed Index", "0.9 s", "pass"]],
+      capture: ["Captured at Oct 19, 2026, 6:54 PM GMT+8", "Emulated Desktop with Lighthouse 13.5.0", "Custom throttling", "Initial page load", "Single page session"],
+      insights: [["fail", "Improve image delivery", "Est savings of 367 KiB"], ["fail", "Use efficient cache lifetimes", "Est savings of 299 KiB"], ["fail", "Render-blocking requests", "Est savings of 580 ms"], ["fail", "Layout shift culprits"], ["fail", "LCP request discovery"], ["fail", "Network dependency tree"], ["avg", "Font display", "Est savings of 10 ms"], ["info", "LCP breakdown"], ["info", "3rd parties"]],
+      passedPerf: 15, passedA11y: 19,
+      bp: [["fail", "Displays images with incorrect aspect ratio"]], passedBP: 12,
+      agentAudits: [["fail", "Cumulative Layout Shift", "0.457"]],
+      notes: ["On desktop the page loads quickly; the main content appears at 1.3 s.", "Layout shift (0.457) is the one red metric on desktop, from images loading without set sizes.", "The accessibility issues are the same as on mobile."],
+      retest: [["Performance", "76", "90+"], ["Accessibility", "78", "95+"], ["Cumulative Layout Shift", "0.457", "0.1 or less"]]
+    }
+  };
+
+  document.querySelectorAll(".psi").forEach(function (sec) {
+    var d = R[sec.getAttribute("data-report")];
+    var phone = '<svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+    var desk = '<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 20h8" stroke="currentColor" stroke-width="2"/></svg>';
+    var labels = ["Performance", "Accessibility", "Best Practices", "SEO"];
+    var h = '';
+    h += '<div class="urlbar"><div class="field">https://gspforwarding.com/</div><span class="stamp">Report from Oct 19, 2026, 6:54:25 PM</span></div>';
+    h += '<div class="tabs"><span class="' + (d.tab === "mobile" ? "on" : "") + '">' + phone + 'Mobile</span><span class="' + (d.tab === "desktop" ? "on" : "") + '">' + desk + 'Desktop</span></div>';
+    h += '<div class="row-line"><span>Discover what your real users are experiencing</span><span class="right">No Data</span></div>';
+    h += '<div class="gauges">' + d.scores.map(function (s, i) { return '<div class="gauge">' + gauge(s) + '<span class="lbl">' + labels[i] + '</span></div>'; }).join("") +
+      '<div class="gauge"><span class="pill ' + d.agentic[0] + '">' + ic(d.agentic[0]) + d.agentic[1] + '</span><span class="lbl">Agentic Browsing</span></div></div>';
+    h += '<div class="perf-main"><div class="big">' + gauge(d.scores[0], 18) + '<span class="t">Performance</span><span class="muted small">Values are estimated and may vary.</span><div class="scale"><span>' + ic("fail") + '0–49</span><span>' + ic("avg") + '50–89</span><span>' + ic("pass") + '90–100</span></div></div>';
+    h += '<div><h4 style="padding-bottom:6px">Metrics</h4><div class="metrics">' + d.metrics.map(function (m) { return '<div class="metric"><span class="name">' + ic(m[3]) + m[1] + '</span><span class="val ' + m[3] + '">' + m[2] + '</span></div>'; }).join("") + '</div></div></div>';
+    h += '<div class="capture">' + d.capture.map(function (c) { return '<span>' + c + '</span>'; }).join("") + '</div>';
+    h += group("Insights", d.insights);
+    h += group("Diagnostics", [["fail", "Reduce unused CSS", "Est savings of 11 KiB"], ["avg", "Image elements do not have explicit <code>width</code> and <code>height</code>"], ["avg", "Minify CSS", "Est savings of 3 KiB"]]);
+    h += '<p class="passed">Passed audits (' + d.passedPerf + ')</p>';
+    h += a11y.call(d, d.passedA11y);
+    h += cat(d.scores[2], "Best Practices") + group("User experience", d.bp) + '<p class="passed">Passed audits (' + d.passedBP + ')</p>';
+    h += cat(d.scores[3], "SEO", "Checks basic search readiness. It does not measure rankings.") + group("Content best practices", [["fail", "Image elements do not have <code>[alt]</code> attributes"]]) + '<p class="passed">Passed audits (8)</p>';
+    h += '<div class="cat-head"><span class="pill ' + d.agentic[0] + '" style="margin:0">' + ic(d.agentic[0]) + d.agentic[1] + '</span><div class="t">Agentic Browsing</div></div>' + group("Audits", d.agentAudits);
+    h += '<div class="note"><b class="tag">Our notes</b><ul>' + d.notes.map(function (n) { return '<li>' + n + '</li>'; }).join("") + '</ul></div>';
+    h += '<div class="retest"><h4 style="padding-bottom:6px">For the re-test</h4><div class="retest-wrap"><table><thead><tr><th>Measure</th><th>Oct 19, 2026</th><th>Target</th><th>Dec 2026</th></tr></thead><tbody>' +
+      d.retest.map(function (r) { return '<tr><td>' + r[0] + '</td><td class="v">' + r[1] + '</td><td class="v">' + r[2] + '</td><td class="blank">——</td></tr>'; }).join("") + '</tbody></table></div></div>';
+    h += '<p class="src">Source: Google PageSpeed Insights report, Oct 19, 2026, 6:54:25 PM. Lab data from one run; scores vary by a few points between runs.</p>';
+    sec.insertAdjacentHTML("beforeend", h);
+  });
+
+  // Empty 7 x 7 rank grids: faint street-like lines, grey points, centre pin.
+  document.querySelectorAll(".rank-grid").forEach(function (svg) {
+    var out = '';
+    [[0, 70, 280, 95], [0, 190, 280, 170], [60, 0, 85, 280], [200, 0, 180, 280], [0, 250, 280, 230]].forEach(function (l) {
+      out += '<line x1="' + l[0] + '" y1="' + l[1] + '" x2="' + l[2] + '" y2="' + l[3] + '" stroke="#e1e4dc" stroke-width="6"/>';
+    });
+    for (var i = 0; i < 7; i++) for (var j = 0; j < 7; j++) {
+      var x = 32 + i * 36, y = 32 + j * 36, c = i === 3 && j === 3;
+      out += '<circle cx="' + x + '" cy="' + y + '" r="13" fill="' + (c ? "#ffffff" : "#ffffff") + '" stroke="' + (c ? "#202124" : "#9aa0a6") + '" stroke-width="' + (c ? 2 : 1.2) + '" stroke-dasharray="' + (c ? "none" : "3 2") + '"/>';
+      out += '<text x="' + x + '" y="' + (y + 4) + '" text-anchor="middle" font-size="11" fill="' + (c ? "#202124" : "#9aa0a6") + '">' + (c ? "●" : "–") + '</text>';
+    }
+    svg.innerHTML = out;
+  });
+})();
+</script>
