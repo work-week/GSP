@@ -29,6 +29,16 @@ These come from the company's own materials; confirm with the client before usin
 - The client is largely unsatisfied: it does not represent the brand.
 - The site blocks automated readers (robots.txt), so it has not been reviewed here yet. Add screenshots or notes to [research/](../research/) to capture what specifically misses.
 
+## From the team (questionnaire, 2026-10-19)
+
+- Jason describes what sells as **"Quick and easy."** A candidate brand line in his own words.
+- Buyers are logistics managers, procurement and owners in their 30s to 50s who **call or email**. See [the synthesis](../research/2026-10-21-discovery-questionnaire.md).
+- Korean/Japanese positioning is **not** a priority for now: no stated demand.
+
+## Logo
+
+The container spec sheet (2026-10-21) shows the current logo: a gray "GSP" wordmark with a blue arrow swoosh, "Global Shipping Partners" set beneath. Only a scan exists so far; original files requested.
+
 ## Open
 
 - Brand assets: logo files, colors, fonts, photography. The LinkedIn company logo is a small "gsp" wordmark.

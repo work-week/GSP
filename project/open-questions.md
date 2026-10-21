@@ -2,19 +2,23 @@
 
 Questions for the client or the team. Remove a question once answered and record the answer where it belongs.
 
+## From the questionnaire (2026-10-21)
+
+Answered items moved to [the synthesis](../research/2026-10-21-discovery-questionnaire.md) and `client/`. Still open:
+
+- FMC license number, and whether GSP is licensed as NVOCC, ocean freight forwarder, or both (Alyanna ticked FMC OTI and NVOCC; Jason ticked none).
+- Full name of "Allpoint", the competitor Alyanna named.
+- CJK clients: Jason says yes, Alyanna says no. Who were they, and is that work active?
+- Which email address and phone number should be public, and who answers them? (Buyers mostly call or email.)
+- Three figures on the container spec sheet to confirm (45' max gross and tare, 40' high cube tare).
+
 ## Brand and content
 
-- Ideal client profile: best customers today vs. the ones GSP wants (industry, size, countries, the person who books freight). See [decision 0005](../decisions/0005-familiar-utilitarian-design.md).
-
 - What specifically about the staging redesign does Jason dislike? Any sites (in or out of shipping) he likes?
-- Brand assets: logo files, colors, fonts, photos of the team, offices, cargo.
-- Which services matter most to the business and which bring the best margins? Is heavy lift and project cargo still a core line?
-- Main trade lanes and countries (Korea and Japan? India, given the old "Mumbai" image?).
+- Brand assets: logo source files (only a scan exists, from the container spec sheet), colors, fonts, photos of the team, offices, cargo.
+- Is heavy lift and project cargo still a service GSP sells? It did not come up in the questionnaire (main business: export forwarding).
 - Industries and example customers we may name, and any testimonials or case studies we can use. Would 3–5 clients leave a review (Google, Clutch)?
-- Who does GSP lose deals to? Which forwarders does Jason consider real competitors?
 - Which "very specific searches" does the team see GSP appearing for?
-- Industry memberships, networks or events (for example Breakbulk, forwarder networks)?
-- Partners we could name or exchange referrals with (crating, trucking, port operators)?
 
 ## Search and data
 
@@ -24,7 +28,7 @@ Questions for the client or the team. Remove a question once answered and record
 
 ## Credentials and facts
 
-- Licenses held: FMC (OTI/NVOCC), U.S. customs broker, IATA, C-TPAT, others? License numbers to display.
+- Other licenses besides FMC: U.S. customs broker, IATA, C-TPAT? (Not asked in the questionnaire.)
 - Correct phone numbers for each office (BBB shows a different Schaumburg number). Public email address?
 - Team size and the people who should appear on the site.
 

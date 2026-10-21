@@ -13,6 +13,12 @@ Last updated: 2026-10-19. Detail in [the competitor research](../research/2026-1
 
 - Craters & Freighters NJ (export crating), Mercer Transportation and Palco Transportation (heavy haul trucking).
 
+## What GSP says (questionnaire, 2026-10-19)
+
+- Jason: they lose deals on **price** or because the customer already has a forwarder; best competitors are "everyone these days".
+- Alyanna: they lose clients to **"Allpoint"** (full name unknown; not identified by search on 2026-10-21).
+- GSP did not name IFT or Atlantic Pacific Lines. Those two remain our benchmark for the website, not a confirmed sales rival.
+
 ## Direct competitors
 
 Detail in [direct competitors research](../research/2026-10-19-direct-competitors.md).

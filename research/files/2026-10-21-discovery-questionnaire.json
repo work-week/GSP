@@ -1,0 +1,296 @@
+{
+  "exportedAt": "2026-10-21T08:18:25.584Z",
+  "responses": [
+    {
+      "id": "2026-10-19T22-05-32-810Z-fad67e13",
+      "questionnaire": "gsp-discovery-2026-10-v2",
+      "respondent": "Alyanna",
+      "startedAt": "2026-10-19T22:01:57.424Z",
+      "submittedAt": "2026-10-19T22:05:32.339Z",
+      "receivedAt": "2026-10-19T22:05:32.810Z",
+      "elapsedSeconds": 215,
+      "answers": [
+        {
+          "id": "lose-clients-to",
+          "section": "Where we lose business",
+          "question": "What companies do we lose clients to?",
+          "answer": "Allpoint"
+        },
+        {
+          "id": "best-competitors",
+          "section": "Where we lose business",
+          "question": "Who are our best competitors?",
+          "answer": ""
+        },
+        {
+          "id": "licenses",
+          "section": "What we can show",
+          "question": "Do we have any freight, forwarding or shipping licenses we can display on the website?",
+          "answer": [
+            "FMC (ocean transportation intermediary)",
+            "NVOCC"
+          ]
+        },
+        {
+          "id": "networks",
+          "section": "What we can show",
+          "question": "Do we have any networks, associations or affiliations we can show on the website?",
+          "answer": ""
+        },
+        {
+          "id": "partnerships",
+          "section": "What we can show",
+          "question": "Do we have any partnerships where we can exchange referrals, or recommend them on our website?",
+          "answer": ""
+        },
+        {
+          "id": "contact-titles",
+          "section": "Our customers",
+          "question": "What is the title of the people most commonly contacting GSP?",
+          "answer": [
+            "Owners",
+            "Logistics managers",
+            "Procurement or purchasing"
+          ]
+        },
+        {
+          "id": "contact-age",
+          "section": "Our customers",
+          "question": "What's the rough estimate of their age?",
+          "answer": [
+            "40s",
+            "50s",
+            "30s"
+          ]
+        },
+        {
+          "id": "contact-method",
+          "section": "Our customers",
+          "question": "What's the most common method of contact?",
+          "answer": "Email"
+        },
+        {
+          "id": "cjk-past",
+          "section": "Our customers",
+          "question": "Have we worked with any CJK (Chinese, Japanese or Korean) clients in the past?",
+          "answer": "No"
+        },
+        {
+          "id": "cjk-want",
+          "section": "Our customers",
+          "question": "Do we want to work with CJK clients?",
+          "answer": ""
+        },
+        {
+          "id": "more-less",
+          "section": "Our customers",
+          "question": "Which customers do we want more of, and less of?",
+          "answer": "More Europe customers/ jakarta. Less china/ middle east"
+        },
+        {
+          "id": "trade-lanes",
+          "section": "Our business",
+          "question": "What are our main countries and trade lanes?",
+          "answer": "Poland, uae"
+        },
+        {
+          "id": "top-services",
+          "section": "Our business",
+          "question": "Which services bring in the most business?",
+          "answer": "Freightforwarding, exports"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-19T20-38-24-647Z-3ee053dc",
+      "questionnaire": "gsp-discovery-2026-10-v2",
+      "respondent": "Jason Kwon",
+      "startedAt": "2026-10-19T20:33:35.943Z",
+      "submittedAt": "2026-10-19T20:38:24.083Z",
+      "receivedAt": "2026-10-19T20:38:24.647Z",
+      "elapsedSeconds": 288,
+      "answers": [
+        {
+          "id": "lose-clients-to",
+          "section": "Where we lose business",
+          "question": "What companies do we lose clients to?",
+          "answer": "Price, or they have been using their own freight forwarder for some time."
+        },
+        {
+          "id": "best-competitors",
+          "section": "Where we lose business",
+          "question": "Who are our best competitors?",
+          "answer": "Everyone these days."
+        },
+        {
+          "id": "licenses",
+          "section": "What we can show",
+          "question": "Do we have any freight, forwarding or shipping licenses we can display on the website?",
+          "answer": []
+        },
+        {
+          "id": "networks",
+          "section": "What we can show",
+          "question": "Do we have any networks, associations or affiliations we can show on the website?",
+          "answer": "N/A"
+        },
+        {
+          "id": "partnerships",
+          "section": "What we can show",
+          "question": "Do we have any partnerships where we can exchange referrals, or recommend them on our website?",
+          "answer": "N/A"
+        },
+        {
+          "id": "contact-titles",
+          "section": "Our customers",
+          "question": "What is the title of the people most commonly contacting GSP?",
+          "answer": [
+            "Logistics managers",
+            "Procurement or purchasing"
+          ]
+        },
+        {
+          "id": "contact-age",
+          "section": "Our customers",
+          "question": "What's the rough estimate of their age?",
+          "answer": [
+            "40s",
+            "30s"
+          ]
+        },
+        {
+          "id": "contact-method",
+          "section": "Our customers",
+          "question": "What's the most common method of contact?",
+          "answer": "Call"
+        },
+        {
+          "id": "cjk-past",
+          "section": "Our customers",
+          "question": "Have we worked with any CJK (Chinese, Japanese or Korean) clients in the past?",
+          "answer": "Yes"
+        },
+        {
+          "id": "cjk-want",
+          "section": "Our customers",
+          "question": "Do we want to work with CJK clients?",
+          "answer": "We take all good customers."
+        },
+        {
+          "id": "more-less",
+          "section": "Our customers",
+          "question": "Which customers do we want more of, and less of?",
+          "answer": "We want all good customers.  We are not judgmental."
+        },
+        {
+          "id": "trade-lanes",
+          "section": "Our business",
+          "question": "What are our main countries and trade lanes?",
+          "answer": "Europe, Middle East."
+        },
+        {
+          "id": "top-services",
+          "section": "Our business",
+          "question": "Which services bring in the most business?",
+          "answer": "Quick and easy."
+        }
+      ]
+    },
+    {
+      "id": "2026-10-19T19-52-31-331Z-09e9a583",
+      "questionnaire": "gsp-discovery-2026-10-v2",
+      "respondent": "Krischan",
+      "startedAt": "2026-10-19T19:51:11.338Z",
+      "submittedAt": "2026-10-19T19:52:29.828Z",
+      "receivedAt": "2026-10-19T19:52:31.331Z",
+      "elapsedSeconds": 78,
+      "answers": [
+        {
+          "id": "lose-clients-to",
+          "section": "Where we lose business",
+          "question": "What companies do we lose clients to?",
+          "answer": "APL Atlantic Pacific Lines"
+        },
+        {
+          "id": "licenses",
+          "section": "What we can show",
+          "question": "Do we have any freight, forwarding or shipping licenses we can display on the website?",
+          "answer": [
+            "Other: License 123456789"
+          ]
+        },
+        {
+          "id": "networks",
+          "section": "What we can show",
+          "question": "Do we have any networks, associations or affiliations we can show on the website?",
+          "answer": "Anthropic, Google"
+        },
+        {
+          "id": "partnerships",
+          "section": "What we can show",
+          "question": "Do we have any partnerships where we can exchange referrals, or recommend them on our website?",
+          "answer": "Anthropic, Google"
+        },
+        {
+          "id": "best-competitors",
+          "section": "Competitors",
+          "question": "Who are our best competitors?",
+          "answer": "Atlantic Pacific Lines"
+        },
+        {
+          "id": "contact-titles",
+          "section": "Our customers",
+          "question": "What is the title of the people most commonly contacting GSP?",
+          "answer": [
+            "Engineers"
+          ]
+        },
+        {
+          "id": "contact-age",
+          "section": "Our customers",
+          "question": "What's the rough estimate of their age?",
+          "answer": [
+            "40s",
+            "50s"
+          ]
+        },
+        {
+          "id": "contact-method",
+          "section": "Our customers",
+          "question": "What's the most common method of contact?",
+          "answer": "Website form"
+        },
+        {
+          "id": "cjk-past",
+          "section": "Our customers",
+          "question": "Have we worked with any CJK (Chinese, Japanese or Korean) clients in the past?",
+          "answer": "Yes"
+        },
+        {
+          "id": "cjk-want",
+          "section": "Our customers",
+          "question": "Do we want to work with CJK clients?",
+          "answer": "Yessir"
+        },
+        {
+          "id": "more-less",
+          "section": "Our customers",
+          "question": "Which customers do we want more of, and less of?",
+          "answer": "Yessir"
+        },
+        {
+          "id": "trade-lanes",
+          "section": "Our business",
+          "question": "What are our main countries and trade lanes?",
+          "answer": "Africa\\"
+        },
+        {
+          "id": "top-services",
+          "section": "Our business",
+          "question": "Which services bring in the most business?",
+          "answer": "Hell yeah"
+        }
+      ]
+    }
+  ]
+}

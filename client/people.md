@@ -28,6 +28,14 @@ Sources: the GSP site and profile PDF, his [LinkedIn profile](https://www.linked
 - He was unhappy with the contractor's staging redesign because it did not represent the brand. See [brand.md](brand.md).
 - His pain points, in his words via the team: reach of the website, and spam (up to about 5 a day), which he links to WordPress and its plugins.
 
+**How he answers questions** (from the discovery questionnaire, 2026-10-19): short and noncommittal ("Everyone these days", "We take all good customers", "We are not judgmental", "Quick and easy"); left licenses blank and put "N/A" for networks and partners. Read this as an owner who sells on relationships and doesn't want to narrow his market on paper, not as a lack of answers. For specifics, ask concrete either/or questions, or ask Alyanna.
+
+## Alyanna: GSP team (exports)
+
+- Answered the discovery questionnaire on 2026-10-19 with the most concrete answers: main lanes Poland and UAE; wants more Europe and Jakarta; lose deals to "Allpoint"; licenses FMC OTI and NVOCC; customers usually email.
+- Likely **Alyanna Gabrielle Vicedo, Export Coordinator** at GSP (appeared in a LinkedIn "more profiles" sidebar next to Jason's profile, 2026-10-19). Unconfirmed.
+- The best person for operational facts: lanes, services, documents, who contacts GSP.
+
 ## Others named on the old site
 
 - **Joan Bevis:** a client quoted in a testimonial ("I know our product is in good hands when Jason Kwon at GSP arranges our freight"). Company not stated.

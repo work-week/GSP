@@ -32,6 +32,18 @@ The site lists no email address and no office hours. The BBB listing shows a dif
 - **Heavy lift and project cargo:** power generation plants, oil and mining developments, oversized and out-of-gauge cargo.
 - **Consulting:** trade, transportation and logistics consulting, program development, training.
 
+## What the team says (discovery questionnaire, 2026-10-19)
+
+Detail in [the questionnaire synthesis](../research/2026-10-21-discovery-questionnaire.md).
+
+- **Main business:** export freight forwarding (Alyanna). Jason: "Quick and easy."
+- **Main lanes:** Europe and the Middle East; specifically **Poland and UAE** (Alyanna).
+- **Want more:** Europe and Jakarta (Indonesia). **Want less:** China and the Middle East (Alyanna). Jason: "We want all good customers."
+- **Licenses:** Alyanna ticked FMC ocean transportation intermediary and NVOCC; Jason ticked none. **Unverified**; license number requested.
+- **Networks and partners:** none ("N/A").
+- **Lose deals on:** price, and customers staying with their existing forwarder. One named competitor: "Allpoint" (unidentified).
+- **Container types offered:** 20', 40' and 45' dry; 20' and 40' open top, flat rack and reefer; 40' high cube (from GSP's container spec sheet, [client/media](media/)).
+
 ## Network and positioning (as claimed)
 
 - Worldwide network of domestic and international agents, some described as among the largest NVOCCs in their trade lanes. No countries named.

@@ -4,6 +4,7 @@ What already happened. Newest first. Use [the template](../templates/log.md), na
 
 | Date | Topic |
 | --- | --- |
+| 2026-10-21 | [Discovery questionnaire and container spec sheet](2026-10-21-discovery-questionnaire.md) |
 | 2026-10-20 | [Principles, two modes, first client photo](2026-10-20-principles-and-modes.md) |
 | 2026-10-19 | [Competitor links and Korean-language search](2026-10-19-competitor-links-and-korean-search.md) |
 | 2026-10-19 | [Baseline audit report, WAVE, Semrush and backlinks](2026-10-19-baseline-audit-report.md) |
